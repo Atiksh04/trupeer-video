@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { formatTime } from "../../utils";
 import RightArrow from "./images/forward.svg";
+import PropTypes from "prop-types";
 
 export default function Timeline({
   duration,
@@ -62,7 +63,6 @@ export default function Timeline({
     setDragType(null);
   };
 
-
   return (
     <div
       className="relative"
@@ -94,7 +94,7 @@ export default function Timeline({
                 handleMouseDown(e, block, "start");
               }}
             >
-              <img src={RightArrow} alt="left" className="h-2 w-2"/>
+              <img src={RightArrow} alt="left" className="h-2 w-2" />
             </div>
             <div
               className="absolute right-0 top-0 w-2 h-full bg-yellow-500 cursor-e-resize flex items-center rounded-r-md select-none"
@@ -102,7 +102,7 @@ export default function Timeline({
                 handleMouseDown(e, block, "end");
               }}
             >
-              <img src={RightArrow} alt="left" className="h-2 w-2 rotate-180"/>
+              <img src={RightArrow} alt="left" className="h-2 w-2 rotate-180" />
             </div>
           </div>
         ))}
@@ -126,3 +126,11 @@ export default function Timeline({
     </div>
   );
 }
+
+Timeline.propTypes = {
+  onBlockUpdate: PropTypes.func,
+  duration: PropTypes.number,
+  currentTime: PropTypes.number,
+  zoomBlocks: PropTypes.func,
+  onTimelineClick: PropTypes.func,
+};

@@ -61,7 +61,6 @@ export default function VideoEditor() {
 
   const handleBlockClick = (block) => {
     setSelectedBlock(block);
-    console.log("handle block click")
     setIsEditPanelOpen(true);
   };
 
